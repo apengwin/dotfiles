@@ -5,7 +5,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'dense-analysis/ale'
+Plugin 'w0rp/ale'
 call vundle#end()            " required
 syntax on
 
@@ -39,8 +39,6 @@ set noerrorbells
 match ErrorMsg '\%>120v.\+'
 match ErrorMsg '\s\+$'
 
-let b:ale_linters = ['flake8']
-
 
 " make it easier to combine comments.
 if v:version > 703 || v:version == 703 && has('patch541')
@@ -64,7 +62,6 @@ augroup END
 
 " Last line is for proper wrapping of jemdoc lists, etc.
 autocmd Filetype jemdoc setlocal comments=:#,fb:-,fb:.,fb:--,fb:..,fb:\:
-
 let b:ale_linters = ['flake8']
 set backspace=indent,eol,start
 
