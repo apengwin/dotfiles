@@ -52,8 +52,16 @@ set noerrorbells visualbell t_vb=
 set mouse+=a
 
 set showcmd
+
+" Don't leave swapfiles and stuff.
 set noswapfile
 set nobackup
+
+" Don't need to scroll to top or bottom.
+set scrolloff=5
+
+" Highlighting in search.
+set hls is
 
 " move among buffers with CTRL
 map <C-J> :bnext<CR>
@@ -76,3 +84,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 " Set airline theme.
 let g:airline_theme = 'luna'
+
+" Shortcut to toggle NERDTree.
+nnoremap <C-t> :NERDTreeToggle<CR>
+
