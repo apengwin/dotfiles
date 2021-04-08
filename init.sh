@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -eou pipefail
+
 # stupid behavior implemented in git 2.16
 git config --global pager.branch false
 
@@ -20,13 +22,14 @@ ln -s $PWD/vimrc ~/.vimrc
 # Plugins
 export VIM_PLUGIN_DIR=~/.vim/pack/vendor/start
 mkdir -p $VIM_PLUGIN_DIR
+cd $VIM_PLUGIN_DIR
 # CtrlP
-(cd $VIM_PLUGIN_DIR && git clone https://github.com/ctrlpvim/ctrlp.vim)
+git clone https://github.com/ctrlpvim/ctrlp.vim
 # Airline
-(cd $VIM_PLUGIN_DIR && git clone https://github.com/vim-airline/vim-airline)
-(cd $VIM_PLUGIN_DIR && git clone https://github.com/vim-airline/vim-airline-themes)
+git clone https://github.com/vim-airline/vim-airline
+git clone https://github.com/vim-airline/vim-airline-themes
 # lint
-(cd $VIM_PLUGIN_DIR && git clone https://github.com/w0rp/ale)
+git clone https://github.com/w0rp/ale
 # NERDTree
-(cd $VIM_PLUGIN_DIR && git clone https://github.com/scrooloose/nerdtree)
-(cd $VIM_PLUGIN_DIR && git clone https://github.com/PhilRunninger/nerdtree-buffer-ops)
+git clone https://github.com/scrooloose/nerdtree
+git clone https://github.com/PhilRunninger/nerdtree-buffer-ops
