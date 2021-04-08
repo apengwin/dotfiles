@@ -79,13 +79,13 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
- export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='mvim'
+  export EDITOR='vim'
 fi
 
 # Compilation flags
@@ -103,6 +103,9 @@ export PATH=~/Library/Python/3.8/bin:$PATH
 export PATH=/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH
 alias brewup='brew update; brew upgrade; brew cleanup; brew doctor'
 bindkey -v
+
+# Always labeled ls results.
+alias ls='ls --color=auto'
 
 # Lines configured by zsh-newuser-install
 setopt autocd extendedglob nomatch notify
