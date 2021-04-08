@@ -83,7 +83,7 @@ let g:airline#extensions#tabline#enabled = 1
 " buffer naming.
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 " Set airline theme.
-let g:airline_theme = 'luna'
+" let g:airline_theme = 'luna'
 
 " Shortcut to toggle NERDTree.
 nnoremap <C-t> :NERDTreeToggle<CR>
