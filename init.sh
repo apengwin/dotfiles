@@ -4,8 +4,12 @@ set -eou pipefail
 
 # stupid behavior implemented in git 2.16
 git config --global pager.branch false
+git config --global --replace-all core.pager "less -F"
 
-brew bundle install --file Brewfile 
+
+if [ "$(uname)" == "Darwin" ]; then
+  brew bundle install --file Brewfile
+fi
 
 # zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

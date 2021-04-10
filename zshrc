@@ -102,7 +102,6 @@ fi
 export PATH=~/Library/Python/3.8/bin:$PATH
 export PATH=/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH
 alias brewup='brew update; brew upgrade; brew cleanup; brew doctor'
-bindkey -v
 
 # Always labeled ls results.
 alias ls='ls --color=auto'
@@ -116,3 +115,4 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # End of lines configured by zsh-newuser-install
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+bindkey -v
