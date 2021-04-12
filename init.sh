@@ -17,6 +17,8 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 rm -f ~/.zhsrc
 ln -s $PWD/zshrc ~/.zshrc
 
+(cd ~/.oh-my-zsh/custom/plugins && git clone https://github.com/zsh-users/zsh-autosuggestions)
+
 # tmux
 rm -f ~/.tmux.conf
 ln -s $PWD/tmux.conf ~/.tmux.conf
