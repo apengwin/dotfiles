@@ -13,6 +13,8 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 rm -f ~/.zhsrc
 ln -s $PWD/zshrc ~/.zshrc
 
+# tmux
+rm -f ~/.tmux.conf
 ln -s $PWD/tmux.conf ~/.tmux.conf
 
 # vim

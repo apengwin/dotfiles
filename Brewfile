@@ -1,3 +1,4 @@
+tap "corgibytes/cask-fonts"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
@@ -9,6 +10,8 @@ brew "coreutils"
 brew "fd"
 # Play, record, convert, and stream audio and video
 brew "ffmpeg"
+# Toolkit for image loading and pixel buffer manipulation
+brew "gdk-pixbuf"
 # Distributed revision control system
 brew "git"
 # Improved top (interactive process viewer)
@@ -47,8 +50,12 @@ brew "youtube-dl"
 brew "zsh"
 # Additional completion definitions for zsh
 brew "zsh-completions"
+# Fish shell like syntax highlighting for zsh
+brew "zsh-syntax-highlighting"
 # Terminal emulator as alternative to Apple's Terminal app
 cask "iterm2"
+# App to write, plan, collaborate, and get organized
+cask "notion"
 # Instant messaging application focusing on security
 cask "signal"
 # Team communication and collaboration software
