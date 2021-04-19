@@ -8,6 +8,9 @@
 " `vim -u foo`).
 set nocompatible
 
+" Apparently some security bug.
+set modelines=0
+
 " Turn on syntax highlighting.
 syntax on
 
@@ -27,7 +30,7 @@ set laststatus=2
 set backspace=indent,eol,start
 
 " By default, Vim doesn't let you hide a buffer (i.e. have a buffer that isn't
-" shown in any window) that has unsaved changes. This is to prevent you from "
+" shown in any window) that has unsaved changes. This is to prevent you from
 " forgetting about unsaved changes and then quitting e.g. via `:qa!`. We find
 " hidden buffers helpful enough to disable this protection. See `:help hidden`
 " for more information on this.
@@ -38,6 +41,9 @@ set hidden
 " it contains any capital letters. This makes searching more convenient.
 set ignorecase
 set smartcase
+
+" Make replacing all occurrences on a line the default.
+set gdefault
 
 " Enable searching as you type, rather than waiting till you press enter.
 set incsearch
@@ -52,6 +58,9 @@ set noerrorbells visualbell t_vb=
 set mouse+=a
 
 set showcmd
+
+" auto-indent for newlines.
+set autoindent
 
 " Don't leave swapfiles and stuff.
 set noswapfile
@@ -76,7 +85,7 @@ let g:ctrlp_cmd = 'CtrlP'
 " .git .hg .svn .bzr _darcs
 let g:ctrlp_working_path_mode = 'ra'
 " Honestly don't know what this does.
-let g:ctrlp_user_command = 'find %s -type f'     
+let g:ctrlp_user_command = 'find %s -type f'
 
 " List buffers at top.
 let g:airline#extensions#tabline#enabled = 1
@@ -87,4 +96,51 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
 " Shortcut to toggle NERDTree.
 nnoremap <C-t> :NERDTreeToggle<CR>
+
+" Make all tabs 4 spaces.
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+
+" Something  to do with tab completion of commands, i think.
+set wildmenu
+set wildmode=longest:full,full
+
+let mapleader = ","
+nnoremap "\<Space>" \"
+
+filetype plugin on
+
+" Create default mappings
+let g:NERDCreateDefaultMappings = 1
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+" Enable NERDCommenterToggle to check all selected lines is commented or not
+let g:NERDToggleCheckAllLines = 1
+
+" Use tab to jump across bracket pairs.
+nnoremap <tab> %
+vnoremap <tab> %
+
+" line wrap instead of pushing to new buffer.
+set wrap
+set formatoptions=qrn1
+" Mark text that goes beyond 100 char limit.
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
+
+" Strip all trailing whitespace.
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+
+" Clear search highlights.
+nnoremap <leader><space> :noh<cr>
 
