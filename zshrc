@@ -116,3 +116,22 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # End of lines configured by zsh-newuser-install
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+export FZF_DEFAULT_COMMAND='fd --hidden --no-ignore . "$(git rev-parse --show-toplevel 2>/dev/null)"'
+
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+
+#   - CTRL-O to open with `open` command,
+#   - CTRL-E or Enter key to open with the $EDITOR
+f() {
+  IFS=$'\n' out=("$(fzf-tmux --query="$1" --exit-0 --expect=ctrl-o,ctrl-e)")
+  key=$(head -1 <<< "$out")
+  file=$(head -2 <<< "$out" | tail -1)
+  if [ -n "$file" ]; then
+    [ "$key" = ctrl-o ] && open "$file" ||
+    [ -d "$file" ] && cd  "$file" ||
+    ${EDITOR:-vim} "$file"
+  fi
+}
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+bindkey "ç" fzf-cd-widget
+

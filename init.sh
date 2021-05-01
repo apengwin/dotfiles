@@ -27,8 +27,8 @@ ln -s $PWD/vimrc ~/.vimrc
 export VIM_PLUGIN_DIR=~/.vim/pack/vendor/start
 mkdir -p $VIM_PLUGIN_DIR
 cd $VIM_PLUGIN_DIR
-# CtrlP
-git clone https://github.com/ctrlpvim/ctrlp.vim
+# fzf.vim
+git clone https://github.com/junegunn/fzf.vim.git
 # Airline
 git clone https://github.com/vim-airline/vim-airline
 git clone https://github.com/vim-airline/vim-airline-themes
@@ -37,3 +37,5 @@ git clone https://github.com/w0rp/ale
 # NERDTree
 git clone https://github.com/scrooloose/nerdtree
 git clone https://github.com/PhilRunninger/nerdtree-buffer-ops
+# NERDCommenter
+git clone https://github.com/preservim/nerdcommenter.git

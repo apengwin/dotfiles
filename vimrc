@@ -76,17 +76,6 @@ set hls is
 map <C-J> :bnext<CR>
 map <C-K> :bprev<CR>
 
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-
-" When invoked without an explicit starting directory
-" CtrlP will set its local working directory
-" to the nearest ancestor with any one of these:
-" .git .hg .svn .bzr _darcs
-let g:ctrlp_working_path_mode = 'ra'
-" Honestly don't know what this does.
-let g:ctrlp_user_command = 'find %s -type f'
-
 " List buffers at top.
 let g:airline#extensions#tabline#enabled = 1
 " buffer naming.
@@ -144,3 +133,15 @@ let g:NERDTrimTrailingWhitespace = 1
 " Enable NERDCommenterToggle to check all selected lines is commented or not
 let g:NERDToggleCheckAllLines = 1
 
+" fzf integration.
+set rtp+=/opt/homebrew/opt/fzf
+
+" [Buffers] Jump to the existing window if possible
+let g:fzf_buffers_jump = 1
+
+function! s:find_git_root()
+  return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
+endfunction
+
+command! ProjectFiles execute 'Files' s:find_git_root()
+nmap <C-P> :ProjectFiles<CR>
