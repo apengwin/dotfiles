@@ -115,12 +115,13 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # End of lines configured by zsh-newuser-install
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# configured so that fzf starts in git root.
 export FZF_DEFAULT_COMMAND='fd --no-ignore . "$(git rev-parse --show-toplevel 2>/dev/null)"'
-
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 
 #   - CTRL-O to open with `open` command,
 #   - CTRL-E or Enter key to open with the $EDITOR
+#   - CTRL-E or Enter key to cd into directory.
 f() {
   IFS=$'\n' out=("$(fzf-tmux --query="$1" --exit-0 --expect=ctrl-o,ctrl-e)")
   key=$(head -1 <<< "$out")
