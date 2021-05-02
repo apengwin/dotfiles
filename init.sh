@@ -3,8 +3,7 @@
 set -eou pipefail
 
 # stupid behavior implemented in git 2.16
-git config --global pager.branch false
-git config --global --replace-all core.pager "less -F"
+git config --global core.pager "less -X -F"
 
 
 if [ "$(uname)" == "Darwin" ]; then

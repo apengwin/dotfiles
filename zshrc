@@ -98,6 +98,9 @@ export EDITOR='vim'
 export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
 alias brewup='brew update; brew upgrade; brew cleanup; brew doctor'
 
+# Always labeled ls results.
+alias ls='ls --color'
+
 # Lines configured by zsh-newuser-install
 setopt autocd extendedglob nomatch notify
 unsetopt beep
@@ -107,12 +110,13 @@ unsetopt beep
 # End of lines configured by zsh-newuser-install
 # source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-export FZF_DEFAULT_COMMAND='fd --hidden --no-ignore . "$(git rev-parse --show-toplevel 2>/dev/null)"'
-
+# configured so that fzf starts in git root.
+export FZF_DEFAULT_COMMAND='fd --no-ignore . "$(git rev-parse --show-toplevel 2>/dev/null)"'
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 
 #   - CTRL-O to open with `open` command,
 #   - CTRL-E or Enter key to open with the $EDITOR
+#   - CTRL-E or Enter key to cd into directory.
 f() {
   IFS=$'\n' out=("$(fzf-tmux --query="$1" --exit-0 --expect=ctrl-o,ctrl-e)")
   key=$(head -1 <<< "$out")
