@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/allan/.oh-my-zsh"
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -82,11 +82,7 @@ source $ZSH/oh-my-zsh.sh
 export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='vim'
-fi
+export EDITOR='vim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -99,21 +95,17 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export PATH=~/Library/Python/3.8/bin:$PATH
-export PATH=/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH
+export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
 alias brewup='brew update; brew upgrade; brew cleanup; brew doctor'
-
-# Always labeled ls results.
-alias ls='ls --color=auto'
 
 # Lines configured by zsh-newuser-install
 setopt autocd extendedglob nomatch notify
 unsetopt beep
 
-ZSH_THEME="powerlevel9k/powerlevel9k"
+#ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # End of lines configured by zsh-newuser-install
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export FZF_DEFAULT_COMMAND='fd --hidden --no-ignore . "$(git rev-parse --show-toplevel 2>/dev/null)"'
 

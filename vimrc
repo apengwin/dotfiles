@@ -134,7 +134,18 @@ let g:NERDTrimTrailingWhitespace = 1
 let g:NERDToggleCheckAllLines = 1
 
 " fzf integration.
-set rtp+=/opt/homebrew/opt/fzf
+set rtp+=/usr/local/opt/fzf/
+
+" Use tab to jump across bracket pairs.
+nnoremap <tab> %
+vnoremap <tab> %
+
+" line wrap instead of pushing to new buffer.
+set wrap
+set formatoptions=qrn1
+" Mark text that goes beyond 100 char limit.
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%101v.\+/
 
 " [Buffers] Jump to the existing window if possible
 let g:fzf_buffers_jump = 1
