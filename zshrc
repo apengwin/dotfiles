@@ -135,3 +135,5 @@ f() {
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 bindkey "ç" fzf-cd-widget
 
+alias gsu="git status -uno"
+
