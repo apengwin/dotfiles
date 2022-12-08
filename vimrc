@@ -107,8 +107,8 @@ vnoremap <tab> %
 set wrap
 set formatoptions=qrn1
 " Mark text that goes beyond 100 char limit.
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
+"highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+"match OverLength /\%81v.\+/
 
 " Strip all trailing whitespace.
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
@@ -144,8 +144,8 @@ vnoremap <tab> %
 set wrap
 set formatoptions=qrn1
 " Mark text that goes beyond 100 char limit.
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%101v.\+/
+" highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+" match OverLength /\%101v.\+/
 
 " [Buffers] Jump to the existing window if possible
 let g:fzf_buffers_jump = 1
@@ -156,3 +156,19 @@ endfunction
 
 command! ProjectFiles execute 'Files' s:find_git_root()
 nmap <C-P> :ProjectFiles<CR>
+
+function! RipgrepFzf(query, fullscreen)
+  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
+  let initial_command = printf(command_fmt, shellescape(a:query))
+  let reload_command = printf(command_fmt, '{q}')
+  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+
+command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
+au BufReadPost *.jsonnet.TEMPLATE set syntax=jsonnet
+
+let g:jsonnet_fmt_on_save = 0
+
+" do not autoindent when pasting.
+set paste

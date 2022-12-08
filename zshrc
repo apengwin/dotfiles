@@ -129,3 +129,16 @@ f() {
 }
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 bindkey "ç" fzf-cd-widget
+
+alias gsu="git status -uno"
+alias cdu="cd ~/universe"
+alias rgs="rg --type scala"
+alias rgn="rg -g '!*GENERATED*'"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/allan.peng/.sdkman"
+[[ -s "/Users/allan.peng/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/allan.peng/.sdkman/bin/sdkman-init.sh"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
