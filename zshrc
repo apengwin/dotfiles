@@ -134,8 +134,19 @@ alias gsu="git status -uno"
 alias cdu="cd ~/universe"
 alias rgs="rg --type scala"
 alias rgn="rg -g '!*GENERATED*'"
+alias ba="cd -"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/allan.peng/.sdkman"
 [[ -s "/Users/allan.peng/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/allan.peng/.sdkman/bin/sdkman-init.sh"
 
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export SCALA_INCREMENTAL=false
+
+sche() {
+  vim ~/universe/manager/src/test/resources/manager/db/migration/latest_schema_mysql_57.sql
+}
